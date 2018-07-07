@@ -87,6 +87,11 @@ class Checker:
             subject = items[0]['subject']
             items.reverse()
             body = '\n\n'.join([ f'\u2709\ufe0f {i["from_"]}: "{i["subject"]}"\nmessage:{quote_plus(i["message_id"])}' for i in items ])
+        
+        elif self.action['action'] == 'omnifocus':
+            subject = items[0]['subject']
+            items.reverse()
+            body = '\n\n'.join([ f'\u2709\ufe0f {i["from_"]}: "{i["subject"]}"\nmessage:{quote_plus(i["message_id"])}' for i in items ])
        
         # TODO: create this action
         elif self.action['action'] == 'resend':

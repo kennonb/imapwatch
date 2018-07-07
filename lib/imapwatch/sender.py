@@ -21,8 +21,9 @@ class Sender:
         msg['To'] = Header(to,'utf-8')
         msg['Subject'] = Header(subject,'utf-8')
 
-        s = smtplib.SMTP_SSL(self.server)
+        s = smtplib.SMTP(self.server, 587)
         s.ehlo()
+        s.starttls()
         s.login(self.username,self.password)
         s.sendmail(self.from_, to, msg.as_string())
         s.quit()
